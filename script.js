@@ -10,15 +10,16 @@ form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     submitButton.disabled = true;
+    spinner.style.display = "block";
+    responseMessage.textContent = "";
+    responseMessage.className = "response-message"; // Reset classes
+
     const name = form.name.value.trim();
     const email = form.email.value.trim();
     const message = form.message.value.trim();
 
-    responseMessage.textContent = "";
-    spinner.style.display = "block"; // Show spinner
-
     if (name === "" || email === "" || message === "") {
-        spinner.style.display = "none"; // Hide spinner
+        spinner.style.display = "none";
         submitButton.disabled = false;
         responseMessage.textContent = "Please fill in all fields.";
         responseMessage.classList.add("response-error");
@@ -27,7 +28,7 @@ form.addEventListener("submit", async function (e) {
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-        spinner.style.display = "none"; // Hide spinner
+        spinner.style.display = "none";
         submitButton.disabled = false;
         responseMessage.textContent = "Please enter a valid email address.";
         responseMessage.classList.add("response-error");
@@ -44,7 +45,7 @@ form.addEventListener("submit", async function (e) {
             body: JSON.stringify({ name, email, message }),
         });
 
-        spinner.style.display = "none"; // Hide spinner after response
+        spinner.style.display = "none";
         submitButton.disabled = false;
 
         if (res.ok) {
@@ -56,7 +57,7 @@ form.addEventListener("submit", async function (e) {
             responseMessage.classList.add("response-error");
         }
     } catch (error) {
-        spinner.style.display = "none"; // Hide spinner on error
+        spinner.style.display = "none";
         submitButton.disabled = false;
         responseMessage.textContent =
             "Error submitting form. Please try again later.";
