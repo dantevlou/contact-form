@@ -24,6 +24,21 @@ const responseMessage = document.createElement("div");
 responseMessage.classList.add("response-message");
 form.appendChild(responseMessage);
 
+// Confirmation Modal Elements
+const modal = document.getElementById("confirmationModal");
+const closeModal = document.getElementById("closeModal");
+
+closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Close modal if user clicks outside content
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
 // Form Submission Logic
 form.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -31,7 +46,7 @@ form.addEventListener("submit", async function (e) {
     submitButton.disabled = true;
     spinner.style.display = "block";
     responseMessage.textContent = "";
-    responseMessage.className = "response-message"; // Reset classes
+    responseMessage.className = "response-message";
 
     const name = form.name.value.trim();
     const email = form.email.value.trim();
@@ -76,14 +91,15 @@ form.addEventListener("submit", async function (e) {
         submitButton.disabled = false;
 
         if (res.ok) {
-            responseMessage.textContent = "Message sent successfully!";
-            responseMessage.classList.add("response-success");
             form.reset();
 
-            // Clear error classes after success
+            // Remove any lingering error classes
             form.name.classList.remove("error");
             form.email.classList.remove("error");
             form.message.classList.remove("error");
+
+            // Show confirmation modal
+            modal.style.display = "block";
         } else {
             responseMessage.textContent = "Failed to send message.";
             responseMessage.classList.add("response-error");
@@ -96,6 +112,7 @@ form.addEventListener("submit", async function (e) {
         responseMessage.classList.add("response-error");
     }
 
+    // Auto-clear response message after 4 seconds
     setTimeout(() => {
         responseMessage.textContent = "";
         responseMessage.className = "response-message";
