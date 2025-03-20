@@ -1,4 +1,6 @@
 const form = document.getElementById("contactForm");
+const spinner = document.getElementById("spinner");
+
 const responseMessage = document.createElement("div");
 form.appendChild(responseMessage);
 
@@ -9,7 +11,11 @@ form.addEventListener("submit", async function (e) {
     const email = form.email.value.trim();
     const message = form.message.value.trim();
 
+    responseMessage.textContent = "";
+    spinner.style.display = "block"; // Show spinner
+
     if (name === "" || email === "" || message === "") {
+        spinner.style.display = "none"; // Hide spinner
         responseMessage.textContent = "Please fill in all fields.";
         responseMessage.style.color = "red";
         return;
@@ -17,6 +23,7 @@ form.addEventListener("submit", async function (e) {
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
+        spinner.style.display = "none"; // Hide spinner
         responseMessage.textContent = "Please enter a valid email address.";
         responseMessage.style.color = "red";
         return;
@@ -32,6 +39,8 @@ form.addEventListener("submit", async function (e) {
             body: JSON.stringify({ name, email, message }),
         });
 
+        spinner.style.display = "none"; // Hide spinner after response
+
         if (res.ok) {
             responseMessage.textContent = "Message sent successfully!";
             responseMessage.style.color = "green";
@@ -41,6 +50,7 @@ form.addEventListener("submit", async function (e) {
             responseMessage.style.color = "red";
         }
     } catch (error) {
+        spinner.style.display = "none"; // Hide spinner on error
         responseMessage.textContent =
             "Error submitting form. Please try again later.";
         responseMessage.style.color = "red";
