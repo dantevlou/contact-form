@@ -1,6 +1,14 @@
 const form = document.getElementById("contactForm");
 const spinner = document.getElementById("spinner");
 const submitButton = form.querySelector("button");
+const messageField = form.querySelector("#message");
+const charCount = document.getElementById("charCount");
+
+messageField.addEventListener("input", () => {
+    charCount.textContent = `${messageField.value.length}/500`;
+});
+
+messageField.maxLength = 500;
 
 const responseMessage = document.createElement("div");
 responseMessage.classList.add("response-message");
