@@ -10,14 +10,37 @@
         <h1>Contact Us</h1>
 
         <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required />
+            <div class="form-group">
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder=" "
+                />
+                <label for="name">Name</label>
+            </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+            <div class="form-group">
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder=" "
+                />
+                <label for="email">Email</label>
+            </div>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
+            <div class="form-group">
+                <textarea
+                    id="message"
+                    name="message"
+                    required
+                    placeholder=" "
+                ></textarea>
+                <label for="message">Message</label>
+            </div>
 
             <div id="charCount">0/500</div>
 
