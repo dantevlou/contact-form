@@ -1,6 +1,8 @@
 const form = document.getElementById("contactForm");
+const responseMessage = document.createElement("div");
+form.appendChild(responseMessage);
 
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const name = form.name.value.trim();
@@ -8,17 +10,39 @@ form.addEventListener("submit", function (e) {
     const message = form.message.value.trim();
 
     if (name === "" || email === "" || message === "") {
-        alert("Please fill in all fields.");
+        responseMessage.textContent = "Please fill in all fields.";
+        responseMessage.style.color = "red";
         return;
     }
 
-    // Basic email pattern check
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-        alert("Please enter a valid email address.");
+        responseMessage.textContent = "Please enter a valid email address.";
+        responseMessage.style.color = "red";
         return;
     }
 
-    alert("Form submitted successfully!");
-    form.reset();
+    // API Submission (Example URL)
+    try {
+        const res = await fetch("https://example.com/api/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name, email, message }),
+        });
+
+        if (res.ok) {
+            responseMessage.textContent = "Message sent successfully!";
+            responseMessage.style.color = "green";
+            form.reset();
+        } else {
+            responseMessage.textContent = "Failed to send message.";
+            responseMessage.style.color = "red";
+        }
+    } catch (error) {
+        responseMessage.textContent =
+            "Error submitting form. Please try again later.";
+        responseMessage.style.color = "red";
+    }
 });
