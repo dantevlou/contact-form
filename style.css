@@ -10,6 +10,13 @@ form {
     border-radius: 10px;
     max-width: 400px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease;
+    margin: 50px auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 label {
@@ -70,10 +77,6 @@ textarea:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
     outline: none;
-}
-
-form {
-    animation: fadeIn 1s ease;
 }
 
 @keyframes fadeIn {
