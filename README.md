@@ -52,7 +52,7 @@ cd contact-form-template
 4. **Connect to Your API:**  
    Inside `script.js`, find this placeholder code:
 
-```
+```javascript
 await fetch("https://example.com/api/contact", {
   method: "POST",
   headers: { "Content-Type": "application/json" },
