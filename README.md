@@ -3,7 +3,7 @@
 A fully functional, modern **Contact Form Template** built with **HTML, CSS, and JavaScript**. Features include validation, API submission, animations, and mobile responsiveness.
 
 ---
-## Contact Form Preview (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧
+## Preview (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧
 
 ![Contact Form Preview](https://github.com/user-attachments/assets/e9a1aace-57ff-4bc0-8f85-165bf1e35fa6)
 
