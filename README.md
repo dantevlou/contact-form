@@ -1,10 +1,13 @@
-# Contact Form Template  (^_^)/
+# Contact Form Template 
 
 A fully functional, modern **Contact Form Template** built with **HTML, CSS, and JavaScript**. Features include validation, API submission, animations, and mobile responsiveness.
 
 ---
+## Contact Form Preview (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧
 
-## Features (*≧▽≦)
+![Contact Form Preview](https://github.com/user-attachments/assets/e9a1aace-57ff-4bc0-8f85-165bf1e35fa6)
+
+## Features
 
 - **Floating Labels**  
   Smoothly animated floating labels that move when the user focuses or types.
@@ -34,17 +37,7 @@ A fully functional, modern **Contact Form Template** built with **HTML, CSS, and
 
 ---
 
-## Files Included (⌒‿⌒)
-
-| File          | Description                                                        |
-|---------------|--------------------------------------------------------------------|
-| `index.html`  | Contact form structure with floating labels and modal              |
-| `style.css`   | Styling for form, animations, responsiveness, and modal            |
-| `script.js`   | Handles validation, API submission, spinner, and confirmation modal |
-
----
-
-## How to Use ヽ(・∀・)ﾉ
+## How to Use 
 
 1. **Clone This Repository:**
 
@@ -75,9 +68,4 @@ Replace `https://example.com/api/contact` with your real API endpoint. You can u
 
 ---
 
-## Contact Form Preview (ﾉ◕ヮ◕)ﾉ*:・ﾟ✧
-
-![Contact Form Preview](https://github.com/user-attachments/assets/e9a1aace-57ff-4bc0-8f85-165bf1e35fa6)
-
----
 
